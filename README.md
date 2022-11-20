@@ -11,7 +11,12 @@ subset construction
 ## dfa minimal
 hopcroft algorithm
 
-## nfa to regular language
+## nfa/dfa to regular language
 
-kleene's algorithm(TODO) 
+kleene's algorithm
 
+
+
+## recognitize string
+
+TODO

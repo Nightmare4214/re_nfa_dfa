@@ -5,6 +5,8 @@
 #include"DFA.h"
 #include"NFA2DFA.h"
 #include"DFAMinimal.h"
+#include"NFA2RE.h"
+#include"DFA2RE.h"
 int main() {
 	NFA a, b;
 	
@@ -41,6 +43,22 @@ int main() {
 
 	DFA minimal_dfa = hopcroft(dfa, { 'a','b' });
 	minimal_dfa.display();
+
+	//NFA nfa2(
+	//	4,
+	//	{
+	//		{0,1,'a'},{1,2,'b'},{2,1,'c'},{2,2,'d'},{2,3,'e'},{3,2,'f'},{1,3,'g'},{3,1,'h'}
+	//	},
+	//	{ 3 }
+	//);
+	//NFA nfa2 = re2nfa("(a|b)*");
+	//nfa2.display();
+	//std::cout << nfa2re(nfa2) << std::endl;
+	DFA dfa2 = hopcroft(nfa2dfa(re2nfa(nfa2re(nfa))), { 'a','b' });
+	dfa2.display();
+
+	DFA dfa3 = hopcroft(nfa2dfa(re2nfa(dfa2re(dfa))), { 'a','b' });
+	dfa3.display();
 
 	return 0;
 }
